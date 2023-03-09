@@ -1,26 +1,20 @@
-baseurl: https://example.com
-languageCode: en-us
+baseurl: https://blog.fallensue.top
+languageCode: zh-cn
 theme: hugo-theme-stack
 paginate: 5
-title: Example Site
+title: 红露的自留地
 
 languages:
   en:
     languageName: English
-    title: Example Site
-    description: Example description
+    title: Luosue's Blog
+    description: something I like to talk about.
     weight: 1
   zh-cn:
     languageName: 中文
-    title: 演示站点
-    description: 演示说明
+    title: 红露的自留地
+    description: 无聊时的随笔
     weight: 2
-  ar:
-    languageName: عربي
-    languagedirection: rtl
-    title: موقع تجريبي
-    description: وصف تجريبي
-    weight: 3
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
@@ -37,7 +31,7 @@ DefaultContentLanguage: zh-cn
 hasCJKLanguage: false
 
 permalinks:
-  post: /p/:slug/
+  post: /post/:slug/
   page: /:slug/
 
 params:
@@ -48,7 +42,7 @@ params:
   favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
 
   footer:
-    since: 2020
+    since: 2023
     customText:
 
   dateFormat:
@@ -56,12 +50,12 @@ params:
     lastUpdated: Jan 02, 2006 15:04 MST
 
   sidebar:
-    emoji: 🍥
-    subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    emoji: ⭐
+    subtitle: Talk is less.
     avatar:
       enabled: true
       local: true
-      src: img/avatar.png
+      src: https://img.fallensue.top/avatar.png
 
   article:
     math: false
@@ -199,15 +193,9 @@ menu:
   social:
     - identifier: github
       name: GitHub
-      url: https://github.com/CaiJimmy/hugo-theme-stack
+      url: https://github.com/LuoSue
       params:
         icon: brand-github
-
-    - identifier: twitter
-      name: Twitter
-      url: https://twitter.com
-      params:
-        icon: brand-twitter
 
 related:
   includeNewer: true
