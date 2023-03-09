@@ -54,7 +54,7 @@ params:
     subtitle: Talk is less.
     avatar:
       enabled: true
-      local: true
+      local: false
       src: "https://img.fallensue.top/avatar.png"
 
   article:
