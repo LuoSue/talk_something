@@ -1,22 +1,40 @@
-name: Upload to COS
+name: Deploy to COS
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
-  build:
-
+  build-and-deploy:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v1
-    - name: Install coscmd
-      run: sudo pip install coscmd
-    - name: Configure coscmd
-      env:
-        SECRET_ID: ${{ secrets.SecretId }}
-        SECRET_KEY: ${{ secrets.SecretKey }}
-        BUCKET: luosue-buket-1301754310
-        REGION: ap-beijing
-      run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
-    - name: Upload
-      run: coscmd upload -rfs --delete ./ / --ignore "./.git/*"
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: TencentCloud/cos-action@v1
+        with:
+          secret_id: ${{ secrets.SECRETID }}
+          secret_key: ${{ secrets.SECRETKEY }}
+          cos_bucket: ${{ secrets.COS_BUCKET }}
+          cos_region: ${{ secrets.COS_REGION }}
+          local_path: public
+          remote_path: /
+          clean: "true"
