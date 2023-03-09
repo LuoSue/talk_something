@@ -55,7 +55,7 @@ params:
     avatar:
       enabled: true
       local: true
-      src: https://img.fallensue.top/avatar.png
+      src: "https://img.fallensue.top/avatar.png"
 
   article:
     math: false
