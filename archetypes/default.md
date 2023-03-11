@@ -1,10 +1,14 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 slug: ""
-image: ""
-categories: ""
-date: {{ .Date }}
-draft: true
 description: ""
+image: ""
+categories: [""]
+tags: [""]
+date: {{ .Date }}
+lastmod: {{ .Date }}
+toc: true
+weight: false
+draft: true
 ---
 
