@@ -5,11 +5,11 @@ paginate: 5
 title: 红露的自留地
 
 languages:
-  en:
-    languageName: English
-    title: Luosue's Blog
-    description: something I like to talk about.
-    weight: 1
+  #en:
+  #languageName: English
+  #title: Luosue's Blog
+  #description: something I like to talk about.
+  #weight: 1
   zh-cn:
     languageName: 中文
     title: 红露的自留地
@@ -42,7 +42,7 @@ params:
   favicon: "https://img.fallensue.top/leaves.png"
   footer:
     since: 2023
-    customText: 
+    customText:
 
   dateFormat:
     published: Jan 02, 2006
