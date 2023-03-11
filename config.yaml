@@ -39,11 +39,10 @@ params:
     - post
   featuredImageField: image
   rssFullContent: true
-  favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
-
+  favicon: "https://img.fallensue.top/leaves.png"
   footer:
     since: 2023
-    customText:
+    customText: 
 
   dateFormat:
     published: Jan 02, 2006
