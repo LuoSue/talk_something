@@ -42,7 +42,7 @@ params:
   favicon: "https://img.fallensue.top/leaves.png"
   footer:
     since: 2023
-    customText: <a href="https://beian.miit.gov.cn/" target="_blank">备案号</a><a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2021030884号-2</a>
+    customText: <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2021030884号-2</a>
 
   dateFormat:
     published: Jan 02, 2006
