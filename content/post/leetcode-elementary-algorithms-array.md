@@ -12,7 +12,7 @@ weight: false
 draft: false
 ---
 
-## 26.删除有序数组中的重复项
+## 26. 删除有序数组中的重复项
 
 ### 题目描述
 
@@ -138,7 +138,7 @@ public int removeDuplicates(int[] nums)
 * 时间复杂度：整个算法的实现需要遍历一次数组，所以时间复杂度为O(n)
 * 空间复杂度：原地变换，不需要额外的空间，为O(1)
 
-## 122.买卖股票的最佳时机 II
+## 122. 买卖股票的最佳时机 II
 
 ### 题目描述
 
@@ -358,3 +358,243 @@ public void rotate(int[] nums, int k)
 
 * 时间复杂度：遍历一次数组，时间复杂度为O(n)
 * 空间复杂度：原地，空间复杂度为O(1)
+
+## 217. 存在重复元素
+
+### 题目描述
+
+[原题链接](https://leetcode.cn/problems/contains-duplicate/)
+
+### 解题思路
+
+#### 哈希表
+
+原理：将数组中的元素插入到哈希表中，如果插入一个元素时发现此元素已经存在于哈希表中，则说明存在重复元素
+
+#### 排序
+
+原理：对数字从小到大进行排序之后，数组的重复元素必然出现于相邻位置。对数组进行排序之后扫描数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素
+
+### 代码示例
+
+**哈希表**
+
+```java
+public boolean containsDuplicate(int[] nums)
+{
+    // 定义哈希表
+    Set<Integer> set = new HashSet<>();
+    //遍历数组，将元素加入哈希表
+    for (int num : nums) {
+        // 如果已存在，说明重复元素
+        if (!set.add(num)) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+**排序**
+
+```java
+public boolean containsDuplicate(int[] nums)
+{
+    // 对数组进行排序
+    Arrays.sort(nums);
+    // 遍历数组
+    for(int i = 0; i < nums.length - 1; i++)
+    {
+        // 比较相邻元素
+        if(nums[i] == nums[i + 1])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+### 复杂度分析
+
+**哈希表**
+
+* 时间复杂度：O(n)
+* 空间复杂度：O(n)
+* 这种方法的优点是速度快，不需要改变数组的顺序。缺点是需要额外的空间来存储集合。
+
+**排序**
+
+* 时间复杂度：O(nlogn)
+* 空间复杂度：O(1)或O(n)，取决于排序算法是否原地排序
+* 这种方法的优点是不需要额外的空间，或者只需要很少的空间。缺点是速度慢，而且会改变数组的顺序。
+
+## 136. 只出现一次的数字
+
+### 题目描述
+
+[原题链接](https://leetcode.cn/problems/single-number/)
+
+### 解题思路
+
+#### 异或
+
+原理：异或运算符的原理是，对于两个二进制数，如果相同位上的数字相同，则结果为0，否则为1。因此，如果一个数组中有两个相同的数字，它们的异或结果为0，而0与任何数字异或都等于那个数字本身。所以，如果一个数组中只有一个数字出现一次，而其他数字都出现两次，那么把所有数字进行异或运算后得到的结果就是那个**只出现一次的数字**。
+
+#### 哈希表
+
+原理：同上一题
+
+### 代码示例
+
+**异或**
+
+```java
+public int singleNumber(int[] nums) {
+    int ans = 0;
+    for (int num : nums) {
+        ans ^= num;
+    }
+    return ans;
+}
+```
+
+**哈希表**
+
+```java
+public int singleNumber(int[] nums)
+{
+    HashMap<Integer,Integer> map = new HashMap<>();
+    for(int num : nums)
+    {
+        map.put(num,map.getOrDefault(num, 0) + 1);
+    }
+    for(int key : map.keySet())
+    {
+        if(map.get(key) == 1)
+        {
+            return key;
+        }
+    }
+    return -1;
+}
+```
+
+### 复杂度分析
+
+**异或**
+
+* 时间复杂度：O(n)
+* 空间复杂度：O(1)
+
+**哈希表**
+
+* 时间复杂度：O(n)
+* 空间复杂度：O(n)
+
+## 350. 两个数组的交集 II
+
+### 题目描述
+
+[原题链接](https://leetcode.cn/problems/intersection-of-two-arrays-ii/)
+
+### 解题思路
+
+
+
+### 代码示例
+
+
+
+### 复杂度分析
+
+
+
+## 66. 加一
+
+### 题目描述
+
+[原题链接](https://leetcode.cn/problems/plus-one/)
+
+### 解题思路
+
+
+
+### 代码示例
+
+
+
+### 复杂度分析
+
+
+
+## 283. 移动零
+
+### 题目描述
+
+#### [283. 移动零](https://leetcode.cn/problems/move-zeroes/)
+
+### 解题思路
+
+
+
+### 代码示例
+
+
+
+### 复杂度分析
+
+
+
+## 1. 两数之和
+
+### 题目描述
+
+#### [1. 两数之和](https://leetcode.cn/problems/two-sum/)
+
+### 解题思路
+
+
+
+### 代码示例
+
+
+
+### 复杂度分析
+
+
+
+## 36. 有效的数独
+
+### 题目描述
+
+[36. 有效的数独](https://leetcode.cn/problems/valid-sudoku/)
+
+### 解题思路
+
+
+
+### 代码示例
+
+
+
+### 复杂度分析
+
+
+
+## 48. 旋转图像
+
+### 题目描述
+
+[48. 旋转图像](https://leetcode.cn/problems/rotate-image/)
+
+### 解题思路
+
+
+
+### 代码示例
+
+
+
+### 复杂度分析
+
