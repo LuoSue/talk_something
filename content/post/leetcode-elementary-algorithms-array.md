@@ -229,3 +229,132 @@ public int maxProfit(int[] prices)
 
 * 时间复杂度：O(n)，n为数组的长度，需要遍历一次数组
 * 空间复杂度：O(1)，存储空间为常量
+
+## 189. 轮转数组
+
+### 题目描述
+
+[原题链接](https://leetcode.cn/problems/rotate-array/)
+
+### 解题思路
+
+#### 使用额外的数组
+
+使用额外的数组，将每个元素放至正确的位置。原数组中下标为`i`的元素需要放至新数组中下标为`(i+k) mod length`的位置，最后只需要将新数组拷贝至原数组即可
+
+#### 数组反转
+
+原理：利用反转的性质，将数组分为两部分，前面是`n-k`个元素，后面是`k`个元素。如果我们将整个数组进行反转，那么原来的后`k`个元素就会到前面，原来的前`n-k`个元素就会到后面，但是顺序都是相反的。所以如果我们再分别对这两个部分进行反转，就能够恢复它们的顺序，实现轮转的效果
+
+```
+例如，如果数组是 [1,2,3,4,5,6,7] ，k 是 3 ，那么按照以下步骤进行反转：
+
+反转整个数组：[7,6,5,4,3,2,1]
+反转前k个元素：[5,6,7,4,3,2,1]
+反转剩余的元素：[5,6,7,1,2,3,4]
+```
+
+#### 环状替换
+
+原理：将整个数组看成一个头尾相接的环，将每个元素向右移动k位，如果超出数组长度就从头开始，需要使用一个变量`count`来记录移动了多少次，当`count`等于数组长度时，就停止移动。我们也需要使用一个变量`start`来记录每次循环的起始位置，如果发生了重复覆盖的情况，就将`start++`，并继续循环
+
+### 代码示例
+
+**使用额外的数组**
+
+```java
+public void rotate(int[] nums, int k) {
+    int n = nums.length;
+    int [] arr = new int[n];
+    for(int i = 0; i < n; i++)
+    {
+        int j = (i + k) % n;
+        arr[j] = nums[i];
+    }
+    for(int m = 0; m < n; m++)
+    {
+        nums[m] = arr[m];
+    }
+}
+```
+
+**数组反转**
+
+```java
+// 反转数组代码
+void reverse(int[] nums, int start, int end)
+{
+    while(start < end)
+    {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start++;
+        end--;
+    }
+}
+public void rotate(int[] nums, int k)
+{
+    // 防止k大于数组长度
+    k %= nums.length;
+    // 反转整个数组
+    reverse(nums, 0, nums.length - 1);
+    // 反转前k个元素
+    reverse(nums, 0, k - 1);
+    // 反转剩余的元素
+    reverse(nums, k, nums.length - 1);
+}
+```
+
+**环状替换**
+
+```java
+public void rotate(int[] nums, int k)
+{
+    // 防止k大于数组长度
+    k %= nums.length;
+    // 记录移动了多少次
+    int count = 0;
+    // 循环直到移动完所有元素
+    for(int start = 0; count < nums.length; start++)
+    {
+        // 记录当前位置
+        int current = start;
+        // 记录当前元素值
+        int prev = nums[start];
+        do
+        {
+            // 计算下一个位置
+            int next = (current + k) % nums.length;
+            // 记录下一个元素值
+            int temp = nums[next];
+            // 将当前元素值赋给下一个位置
+            nums[next] = prev;
+            // 更新当前元素值为下一个元素值
+            prev = temp;
+            // 更新当前位置为下一个位置
+            current = next;
+            // 增加移动次数
+            count++;
+        }while(start != current);
+    }
+}
+```
+
+### 复杂度分析
+
+**使用额外的数组**
+
+* 时间复杂度：整个算法的实现需要遍历一次数组，所以时间复杂度为O(n)
+
+* 空间复杂度：需要建立新数组，空间复杂度为O(n)
+
+**数组反转**
+
+* 时间复杂度：遍历一次数组，时间复杂度为O(n)
+* 空间复杂度：原地，空间复杂度为O(1)
+
+**环状替换**
+
+* 时间复杂度：遍历一次数组，时间复杂度为O(n)
+* 空间复杂度：原地，空间复杂度为O(1)
