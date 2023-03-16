@@ -1,6 +1,6 @@
 ---
 title: "数据结构-线性表"
-slug: "data_structure_linear_list"
+slug: "data-structure-linear-list"
 description: "二战408记录"
 image: "https://img.fallensue.top/post_banner/OS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png"
 categories: ["408"]

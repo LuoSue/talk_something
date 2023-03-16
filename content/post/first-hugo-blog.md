@@ -1,6 +1,6 @@
 ---
 title: "第一篇Hugo博客"
-slug: "first_hugo_blog"
+slug: "first-hugo-blog"
 description: "第一次使用hugo写文章"
 image: "https://img.fallensue.top/blog/first_hugo_blog.jpg"
 categories: ["杂谈"]

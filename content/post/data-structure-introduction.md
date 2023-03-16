@@ -1,6 +1,6 @@
 ---
 title: "数据结构-绪论"
-slug: "data_structure_introduction"
+slug: "data-structure-introduction"
 description: "二战408记录"
 image: "https://img.fallensue.top/post_banner/HelloHexo.png"
 categories: ["408"]
