@@ -10,13 +10,11 @@ menu:
 
 # 关于我自己
 
-昵称：落苏
-
 性别：男
 
-年龄：21岁
+年龄：22岁
 
-学历：本科，目前就读于[明光村男子职业技术学院](https://www.bupt.edu.cn/)，预计23年顺利毕业
+学历：BUPT SSE本科毕业
 
 南方人，会说一点粤语，第一方言是西南官话，普通话说的还行(?)
 
@@ -30,7 +28,7 @@ menu:
 
 不喜欢过甜的食物，嗜辣，忌口不多
 
-已经不怎么玩手游，Steam几乎是Wallpaper Engine+Paradox游戏启动器，会玩EU4、CK2、VIC2、HOI4，有一个Nintendo Switch，由于旷野之息2和丝之歌的跳票基本处于吃灰状态
+已经不怎么玩手游，Steam几乎是Wallpaper Engine+Paradox游戏启动器，会玩EU4、CK3、VIC3、HOI4，有一个Nintendo Switch，但基本处于吃灰状态
 
 喜好剪辑和拍摄，希望以后的工作能够养活我的爱好
 
